@@ -1,9 +1,7 @@
 import streamlit as st
 import networkx as nx
 import matplotlib.pyplot as plt
-import time
 import pandas as pd
-import tracemalloc
 from pathfinding import IterativeDeepeningBidirectionalSearch, AStarSearch
 from georgia_map import create_georgia_map
 from complexity_analysis import measure_performance
