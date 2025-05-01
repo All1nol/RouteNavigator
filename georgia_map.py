@@ -29,6 +29,8 @@ def create_eurasia_map():
         'Munich': (11.6, 48.1),
         'Prague': (14.4, 50.1),
         'Budapest': (19.1, 47.5),
+        'Zurich': (8.5, 47.4),
+        'Milan': (9.2, 45.5),
         
         # Eastern Europe and Russia
         'Kiev': (30.5, 50.4),
@@ -39,31 +41,51 @@ def create_eurasia_map():
         'Astana': (71.4, 51.1),
         'Novosibirsk': (82.9, 55.0),
         'Irkutsk': (104.3, 52.3),
+        'Omsk': (73.4, 55.0),
+        'Yekaterinburg': (60.6, 56.8),
+        'Krasnoyarsk': (93.1, 56.0),
         
         # Central Asia
         'Almaty': (76.9, 43.2),
         'Tashkent': (69.2, 41.3),
         'Bishkek': (74.6, 42.9),
+        'Dushanbe': (68.8, 38.6),
+        'Ashgabat': (58.4, 37.9),
         
         # China and East Asia
         'Urumqi': (87.6, 43.8),
         'Lanzhou': (103.8, 36.1),
         'Xi\'an': (108.9, 34.3),
-        'Beijing': (116.4, 39.9)
+        'Beijing': (116.4, 39.9),
+        'Shanghai': (121.5, 31.2),
+        'Chengdu': (104.1, 30.7),
+        'Harbin': (126.6, 45.8)
     }
     
     # Define road and rail connections with distances in km
     connections = [
         # Western Europe
         ('Paris', 'Berlin', 1054),
+        ('Paris', 'Munich', 825),
+        ('Paris', 'Vienna', 1240),
+        ('Paris', 'Zurich', 490),
+        ('Paris', 'Milan', 850),
         ('Berlin', 'Warsaw', 574),
         ('Berlin', 'Prague', 350),
         ('Berlin', 'Munich', 585),
+        ('Berlin', 'St. Petersburg', 1650),
         ('Munich', 'Vienna', 355),
+        ('Munich', 'Budapest', 680),
+        ('Munich', 'Zurich', 310),
+        ('Munich', 'Milan', 495),
         ('Vienna', 'Budapest', 243),
+        ('Vienna', 'Prague', 331),
+        ('Vienna', 'Milan', 720),
         ('Prague', 'Warsaw', 693),
         ('Prague', 'Vienna', 331),
         ('Warsaw', 'Minsk', 543),
+        ('Warsaw', 'Budapest', 780),
+        ('Zurich', 'Milan', 230),
         
         # Eastern Europe
         ('Warsaw', 'Kiev', 785),
@@ -72,30 +94,68 @@ def create_eurasia_map():
         ('Moscow', 'St. Petersburg', 705),
         ('Moscow', 'Kiev', 871),
         ('Moscow', 'Volgograd', 981),
+        ('Moscow', 'Yekaterinburg', 1790),
+        ('Budapest', 'Kiev', 1110),
         
-        # Russia to Central Asia
+        # Russia and Central Asia
         ('Moscow', 'Astana', 2700),
+        ('Moscow', 'Tashkent', 3400),
+        ('Moscow', 'Omsk', 2700),
         ('Volgograd', 'Astana', 1900),
+        ('Volgograd', 'Tashkent', 1950),
+        ('Volgograd', 'Ashgabat', 1650),
         ('Astana', 'Almaty', 1300),
         ('Astana', 'Novosibirsk', 1400),
+        ('Astana', 'Bishkek', 960),
+        ('Astana', 'Omsk', 1400),
+        ('Astana', 'Yekaterinburg', 1500),
         ('Almaty', 'Bishkek', 237),
         ('Almaty', 'Tashkent', 810),
+        ('Almaty', 'Urumqi', 1000),
+        ('Almaty', 'Dushanbe', 950),
         ('Bishkek', 'Tashkent', 560),
+        ('Bishkek', 'Urumqi', 990),
+        ('Bishkek', 'Dushanbe', 820),
+        ('Tashkent', 'Dushanbe', 400),
+        ('Tashkent', 'Ashgabat', 1180),
+        ('Dushanbe', 'Ashgabat', 920),
+        
+        # Russian Siberian cities
+        ('Yekaterinburg', 'Omsk', 980),
+        ('Yekaterinburg', 'Novosibirsk', 1600),
+        ('Omsk', 'Novosibirsk', 870),
+        ('Novosibirsk', 'Krasnoyarsk', 800),
+        ('Krasnoyarsk', 'Irkutsk', 1100),
         
         # Central Asia to China
         ('Almaty', 'Urumqi', 1000),
         ('Tashkent', 'Urumqi', 1500),
-        ('Bishkek', 'Urumqi', 990),
         
         # Russia to Siberia
         ('Moscow', 'Novosibirsk', 3200),
+        ('St. Petersburg', 'Novosibirsk', 3700),
         ('Novosibirsk', 'Irkutsk', 1800),
+        ('Novosibirsk', 'Urumqi', 2100),
+        ('Krasnoyarsk', 'Harbin', 2400),
         
         # Through China
         ('Urumqi', 'Lanzhou', 1900),
+        ('Urumqi', 'Xi\'an', 2500),
+        ('Urumqi', 'Chengdu', 2800),
         ('Irkutsk', 'Beijing', 2200),
+        ('Irkutsk', 'Harbin', 1600),
+        ('Irkutsk', 'Lanzhou', 2300),
         ('Lanzhou', 'Xi\'an', 680),
-        ('Xi\'an', 'Beijing', 1100)
+        ('Lanzhou', 'Beijing', 1550),
+        ('Lanzhou', 'Chengdu', 750),
+        ('Lanzhou', 'Shanghai', 1650),
+        ('Xi\'an', 'Beijing', 1100),
+        ('Xi\'an', 'Chengdu', 720),
+        ('Xi\'an', 'Shanghai', 1200),
+        ('Beijing', 'Harbin', 1300),
+        ('Beijing', 'Shanghai', 1300),
+        ('Chengdu', 'Shanghai', 1800),
+        ('Harbin', 'Shanghai', 2000)
     ]
     
     # Add cities as nodes
